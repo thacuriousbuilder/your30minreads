@@ -1,38 +1,41 @@
 import Link from 'next/link';
-import{IoIosContact} from 'react-icons/io'
+import Image from 'next/image';
+import {IoIosSearch} from 'react-icons/io'
+import {CgProfile} from 'react-icons/cg'
 
-export interface IHeader {
-    pageName: string;
-  }
+export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
   
-  const Header: React.FC<IHeader> = ({ pageName }) => {
+  const Header: React.FC<IHeader> = () => {
 
-    return(
-
-      <header>
-        <div className="space-x-5 m-5">
-        <Link href="/">
-          <a className="hover:underline">your30minreads</a>
-        </Link>
-        <Link href="/">
-          <a className="hover:underline">Books</a>
-        </Link>
-            </div>
-            <div className="space-x-5 m-5">
-        <Link href="/">
-          <a className="hover:underline hidden sm:inline">About us</a>
-        </Link>
-        <Link href="/">
-          <a className="hover:underline hidden sm:inline">Search</a>
-        </Link>
-        <Link href="/">
-          <a className="hover:underline hidden sm:inline">Profile</a>
-        </Link>
-        
-        
-            </div>
+    return (
+      <header className='w-full flex flex-row justify-between bg-white-200 h-20 shadow-lg '>
+          <div className='flex flex-row space-x-5 m-7'>
+                <Link className='ml-20' href={''}>
+                  <Image src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
+                </Link>
+                <Link className='hover:underline' href={''}>Books</Link>
+                <Link href={''}>About us</Link>
+              
+              </div>
+                <div className='flex flex-row  m-7'>
+                  <div className='flex list-none mr-10'>
+                    <li className='mr-1 mt-0.5'>
+                      <IoIosSearch size={20}/>
+                    </li>
+                    <li>Search</li>
+                  </div>
+                  <div className='flex list-none ' >
+                    <li className='mr-1 mt-0.5'>
+                      <CgProfile size={20}/>
+                    </li>
+                    <li>
+                    <Link href={''}>Login</Link>
+                    </li>
+                  </div>
+                </div>
+          
       </header>
-      )
+    );
     };
       
   
