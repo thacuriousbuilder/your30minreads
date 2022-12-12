@@ -10,7 +10,7 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
     return (
       <>
         <Head>
-          <title>NextJs Fullstack App Template</title>
+          <title>your30minreads</title>
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col ${justify}`}>
           <Header />
