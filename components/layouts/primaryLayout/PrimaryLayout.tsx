@@ -10,11 +10,11 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
     return (
       <>
         <Head>
-          <title>your30minreads</title>
+          <title></title>
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col ${justify}`}>
           <Header />
-          <main className="px-5">{children}</main>
+          <main className="p-5">{children}</main>
           <div className="m-auto" />
           <Footer developerName='Alhouseny Camara' yearOfUpdate={2022} />
         </div>
