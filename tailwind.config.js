@@ -13,6 +13,20 @@ module.exports = {
       lg: '1200px',
       xl: '1536px',
     },
+    extend: {
+      colors: {
+        color: {
+          500: '#2db5a9',//turquoise
+          400: '#e3b448',//orange
+          300: '#2b2e30',//charcoal
+          200: "#5c5eee",//purple
+          
+        },
+      },
+      spacing: {
+        128: '32rem',
+      },
+    },
   },
   plugins: [],
 };
