@@ -2,6 +2,7 @@
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 import Button from '../components/utils/button/Button';
+import BigBook from '../components/utils/bigBook/BigBook';
 
 const Home: NextPageWithLayout = () => {
 const test=()=>{
@@ -9,7 +10,7 @@ const test=()=>{
 }
   return (
     <section >
-      <Button placeholder='Read now' onClick={()=> test()}/>
+     <BigBook image='/invisibleman.jpeg'/>
     </section>
   );
 };
