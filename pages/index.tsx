@@ -1,13 +1,15 @@
 
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import { NextPageWithLayout } from './page';
-import TitleText from '../utils/titleText/TitleText';
+import Button from '../components/utils/button/Button';
 
 const Home: NextPageWithLayout = () => {
-
+const test=()=>{
+  return alert("hello world")
+}
   return (
     <section >
-      
+      <Button placeholder='Read now' onClick={()=> test()}/>
     </section>
   );
 };
