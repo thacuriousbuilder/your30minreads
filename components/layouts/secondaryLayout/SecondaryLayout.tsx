@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Footer from '../../navigation/footer/Footer';
 import Header from '../../navigation/header/Header';
-import MidFooter from '../../midfooter/MidFooter';
 
-export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
+
+export interface ISecondaryLayout extends React.ComponentPropsWithoutRef<'div'> {
   justify?: 'items-center' | 'items-start';
 }
   
-  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps }) => {
+  const SecondaryLayout: React.FC<ISecondaryLayout> = ({ justify,children,  ...divProps }) => {
     return (
       <>
         <Head>
@@ -17,12 +17,10 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
           <Header />
           <main className="p-5">{children}</main>
           <div className="m-auto" />
-
-          <MidFooter/>
           <Footer developerName='Alhouseny Camara' yearOfUpdate={2022} />
         </div>
       </>
     );
   };
   
-  export default PrimaryLayout;
+  export default SecondaryLayout;

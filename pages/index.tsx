@@ -1,8 +1,7 @@
 
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import { NextPageWithLayout } from './page';
-
-import SmallBook from '../components/smallBook/SmallBook';
+import MidFooter from '../components/midfooter/MidFooter';
 
 const Home: NextPageWithLayout = () => {
 const test=()=>{
@@ -10,7 +9,6 @@ const test=()=>{
 }
   return (
     <section >
-  <SmallBook image='/invisibleman.jpeg' title='Invivisble man' author='Ralph Ellison' rating={5}/>
     </section>
   );
 };
