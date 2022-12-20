@@ -1,7 +1,7 @@
 
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
+
 import { NextPageWithLayout } from './page';
-import MidFooter from '../components/midfooter/MidFooter';
 
 const Home: NextPageWithLayout = () => {
 const test=()=>{
@@ -9,6 +9,7 @@ const test=()=>{
 }
   return (
     <section >
+
     </section>
   );
 };
