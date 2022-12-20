@@ -26,6 +26,12 @@ module.exports = {
       spacing: {
         128: '32rem',
       },
+      height:{
+        100:'30rem'
+      },
+      fontSize:{
+        100:'2.5rem'
+      }
     },
   },
   plugins: [],

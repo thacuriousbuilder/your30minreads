@@ -1,11 +1,12 @@
 import Image from "next/image";
 export interface IBigBook {
     image: string;
+    style: string;
   }
   
-  const BigBook: React.FC<IBigBook> = ({ image }) => {
+  const BigBook: React.FC<IBigBook> = ({ image,style }) => {
     return <div className="rounded-lg">
-      <Image src={image} alt="cover image for newest book" width={250} height={200}/>
+      <Image className={style} src={image} alt="cover image for newest book" width={1000} height={1000}/>
       </div>;
   };
   
