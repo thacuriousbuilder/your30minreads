@@ -1,12 +1,13 @@
 export interface IButton {
     placeholder: string;
-    onClick:()=>void
+    onClick:()=>void;
+    style:string
   }
   
-  const Button: React.FC<IButton> = ({ placeholder,onClick }) => {
+  const Button: React.FC<IButton> = ({ placeholder,onClick,style }) => {
     return(
       <div>
-        <button className="bg-color-200 h-10 w-32 rounded-lg text-white font-bold"  onClick={()=> onClick()}>{placeholder}</button>
+        <button className={style}  onClick={()=> onClick()}>{placeholder}</button>
       </div>
     )
   };
