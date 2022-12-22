@@ -12,7 +12,8 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
     return (
       <>
         <Head>
-          <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>your30minreads</title>
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col ${justify}`}>
           <Header />
@@ -20,7 +21,6 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
           <div className="m-auto" />
           <main className="p-5">{children}</main>
           <div className="m-auto" />
-
           <MidFooter/>
           <Footer developerName='Alhouseny Camara' yearOfUpdate={2022} />
         </div>

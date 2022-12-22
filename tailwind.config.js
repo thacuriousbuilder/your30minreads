@@ -7,6 +7,7 @@ module.exports = {
   // Ensure these match with .storybook/preview.js
   theme: {
     screens: {
+      xxs:'280px',
       xs: '375px',
       sm: '600px',
       md: '900px',
