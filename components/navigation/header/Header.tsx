@@ -10,20 +10,13 @@ export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
     return (
       <header className='w-full flex flex-row justify-between bg-white-200 h-20 shadow-lg '>
           <div className='flex flex-row space-x-5 m-7 text-lg'>
-                <Link className='ml-20' href={''}>
+                <Link className='ml-20 xs:ml-10' href={''}>
                   <Image src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
                 </Link>
-                <Link className='hover:underline' href={''}>Books</Link>
-                <Link className='hover:underline'  href={''}>About us</Link>
-              
+                <Link className='hover:underline hidden sm:inline' href={''}>Books</Link>
+                <Link className='hover:underline hidden sm:inline'  href={''}>About us</Link>
               </div>
                 <div className='flex flex-row  m-7 mr-10  text-lg'>
-                  {/* <div className='flex list-none mr-10'>
-                    <li className='mr-1 mt-0.5'>
-                      <IoIosSearch size={22}/>
-                    </li>
-                    <li>Search</li>
-                  </div> */}
                   <div className='flex list-none ' >
                     <li className='mr-1 mt-0.5'>
                       <CgProfile size={22}/>

@@ -2,6 +2,7 @@ import * as NextImage from 'next/image';
 import 'tailwindcss/tailwind.css';
 
 const BREAKPOINTS_INT = {
+  xxs:280,
   xs: 375,
   sm: 600,
   md: 900,

@@ -39,9 +39,9 @@ const mockData =[
   
 
   return (
-    <section >
+    <section>
 
-      <div className='flex flex-row justify-between ml-52 mt-10 xl:ml-64'>
+      <div className='flex flex-row justify-between ml-52 mt-10 xl:ml-64 '>
         <div>
           <TitleText style=' w-96 text-left break-normal' description='Invisible Man is Ralph Ellison’s only novel and is widely acknowledged as one of the great novels of African-American literature. The invisibility of Ellison’s protagonist is about the invisibility of identity—above all, what it means to be a black man—and its various masks, confronting both personal experience and the force of social illusions. The novel’s special quality is its deft combination of existential inquiry into identity as such—what it means to be socially or racially invisible—with a more sociopolitical allegory of the history of the African-American experience in America. The first-person narrator remains nameless, retrospectively recounting his shifts through the surreal reality of surroundings and people from the racist South to the no less inhospitable world of New York City.' title='Newest Book'/>
           <Button placeholder='Read now!' style='h-14 w-52 rounded-lg text-white font-bold bg-color-400 mt-2 ml-10' onClick={()=> test()}  />

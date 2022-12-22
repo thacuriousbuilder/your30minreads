@@ -1,12 +1,14 @@
-export interface IFooter {
+export interface IFooter extends React.ComponentPropsWithoutRef<'footer'>  {
     developerName: string;
     yearOfUpdate:number |null
   }
   
-  const Footer: React.FC<IFooter> = ({ developerName,yearOfUpdate }) => {
+  const Footer: React.FC<IFooter> = ({ developerName,yearOfUpdate, ...footerProps }) => {
     return (
-      <footer className="w-full h-14 bg-color-300 " >
-       <div className="flex flex-row justify-start p-3 text-gray-500 text-l ">
+      <footer 
+      {...footerProps}
+      className="w-full h-14 bg-color-300 ">
+       <div className="flex flex-row justify-start p-3 text-gray-500 ">
          <p className="mr-1">created by {developerName}</p>
          <p >@{yearOfUpdate}</p>
        </div>
