@@ -3,6 +3,8 @@ import Footer from '../../navigation/footer/Footer';
 import Header from '../../navigation/header/Header';
 import MidFooter from '../../midfooter/MidFooter';
 import ThumbNail from '../../thumbnail/ThumbNail';
+import HeaderBanner from '../../headerBanner/HeaderBanner';
+import { colors } from '../../../constants/colors';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
   justify?: 'items-center' | 'items-start';
@@ -16,13 +18,14 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
           <title>your30minreads</title>
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col ${justify}`}>
+          <HeaderBanner style='bg-primary-bg h-32 w-full'  sampleTextProp='Stay informed and be the first to know about new releases with our newsletter. Sign up now and get updates and exclusive access to upcoming books.'/>
           <Header />
           <ThumbNail/>
-          <div className="m-auto" />
+          <div className="m-auto" />  
           <main className="p-5">{children}</main>
           <div className="m-auto" />
           <MidFooter/>
-          <Footer developerName='Alhouseny Camara' yearOfUpdate={2022} />
+          <Footer developerName='TrinaryVisions LLC.' /> 
         </div>
       </>
     );
