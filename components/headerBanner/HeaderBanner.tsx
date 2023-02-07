@@ -1,12 +1,12 @@
 export interface IHeaderBanner {
-    sampleTextProp: string;
+    text: string;
     style: string;
   }
   
-  const HeaderBanner: React.FC<IHeaderBanner> = ({ sampleTextProp,style }) => {
+  const HeaderBanner: React.FC<IHeaderBanner> = ({ text,style }) => {
     return(
         <div className={style} >
-          <div className="text-xs ml-4 mt-16 font-semibold w-auto">{sampleTextProp}</div>
+          <div className="text-xs ml-4 mt-16 font-semibold w-auto">{text}</div>
         </div>
     )
   };

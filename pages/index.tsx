@@ -3,6 +3,7 @@ import BigBook from '../components/bigBook/BigBook';
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import TitleText from '../components/utils/titleText/TitleText';
 import Button from '../components/utils/button/Button';
+import Grid from '../components/grid/Grid';
 
 import { NextPageWithLayout } from './page';
 import SmallBook from '../components/smallBook/SmallBook';
@@ -41,6 +42,8 @@ const mockData =[
   return (
     <section>
 
+        <div className='text-lg text-secondary-bg bg-opacity-90'>Elevate Your health in 30 minutes</div>
+        
    
 
     </section>

@@ -1,7 +1,7 @@
 import { IHeaderBanner } from './HeaderBanner';
 
 const base: IHeaderBanner = {
-  sampleTextProp: 'nsandnandasnpfnkpasnfpnsapfkpasnfasknfkpasnfpaspkfnksa',
+ text: 'nsandnandasnpfnkpasnfpnsapfkpasnfasknfkpasnfpaspkfnksa',
   style: 'bg-primary-bg h-32 w-full'
 };
 

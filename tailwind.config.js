@@ -22,6 +22,7 @@ module.exports = {
   white: '#FFFFFF',
   black: '#000000',
   charcoal: '#222222',
+  gray:'#D9D9D9'
     },
    fontFamily: {
       sans: ['Poppins','Helvetica', 'sans-serif'],
