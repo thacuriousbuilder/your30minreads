@@ -7,7 +7,7 @@ export interface ITitleText {
   const TitleText: React.FC<ITitleText> = ({ title,description,style }) => {
     return(
         <div className="flex flex-col list-none">
-        <li className="text-3xl font-bold ml-16">{title}</li>
+        <li className="text-3xl font-bold">{title}</li>
         <li className={style}>{description}</li>
         </div>
     )

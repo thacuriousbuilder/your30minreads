@@ -7,12 +7,7 @@ export interface IMidFooter {}
     return(
          
             <section className="flex flex-col bg-tertiary-bg bg-opacity-60">
-              <div className="flex flex-row h-32 p-5 justify-between">
-               <div className="flex flex-col list-none mt-5">
-                 <p className="hover:underline text-sm text-white">BACK TO TOP</p>
-                 <Image src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
-               </div> 
-               <div className="flex flex-col list-none text-white ">
+               <div className="flex flex-col md:text-xl justify-end pt-5 pl-5  text-white ">
                  <p className="hover:underline">Follow Us</p>
                  <div className="flex flex-row">
                    <p>
@@ -22,7 +17,11 @@ export interface IMidFooter {}
                      <Image src='/tiktok.png' alt='The logo of the website' width={20} height={20}/>
                    </p>
                  </div>
-               </div>       
+               </div>     
+              <div className="flex flex-row  h-28 p-5">
+               <div className="flex  mx-auto justify-center items-center">
+                 <Image className=""  src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
+               </div> 
               </div>
             </section>
           

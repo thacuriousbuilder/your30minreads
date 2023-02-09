@@ -7,6 +7,7 @@ module.exports = {
   // Ensure these match with .storybook/preview.js
   theme: {
     screens: {
+      xs:'360px',
       sm: '480px',
       md: '768px',
       lg: '976px',
@@ -30,14 +31,17 @@ module.exports = {
     },
     extend: {
       spacing: {
-        128: '32rem',
+        32: '60rem',
+
       },
       height:{
         100:'30rem'
       },
       fontSize:{
-        100:'2.5rem',
-        200:'1px'
+        '8px':'8px',
+        '9px':'9px',
+        '10px':'10px',
+        '14rem':'14rem'
       }
     },
   },

@@ -9,7 +9,8 @@ export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
     return (
       <header className='self-center mt-5 mb-2'>
                 <Link href={''}>
-                  <Image src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
+                  <Image src='/your30minreads.png' alt='The logo of the website' width={200} height={200} sizes=' (max-width: 600px) 100vw,
+              (min-width: 601px) 50vw'/>
                 </Link>
              
       </header>
