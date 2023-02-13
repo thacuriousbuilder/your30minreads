@@ -16,7 +16,7 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>your30minreads</title>
         </Head>
-        <div {...divProps} className={`min-h-screen flex flex-col ${justify}`}>
+        <div {...divProps} className={`min-h-screen flex flex-col bg-backGrd ${justify}`}>
           <HeaderBanner style='bg-primary-bg xs:h-20 md:h-20 h-20 w-full'  text='Stay informed and be the first to know about new releases with our newsletter. Sign up now and get updates and exclusive access to upcoming books.'/>
           <Header />
           <ThumbNail/>

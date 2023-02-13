@@ -8,7 +8,8 @@ type Colors = {
     white: string;
     black: string;
     charcoal: string;
-    gray:string
+    gray:string;
+    backGrd:string;
   };
   
   export const colors: Colors = {
@@ -21,5 +22,6 @@ type Colors = {
     white: '#FFFFFF',
     black: '#000000',
     charcoal: '#222222',
-    gray:'#D9D9D9'
+    gray:'#D9D9D9',
+    backGrd:"#F0F2F5"
   };
