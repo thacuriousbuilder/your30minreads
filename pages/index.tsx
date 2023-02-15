@@ -14,30 +14,30 @@ const Home: NextPageWithLayout = () => {
 const test=()=>{
   return alert("hello world")
 }
-const mockData =[
-  {
-    author:'Ralph Ellison',
-    image:'/invisibleman.jpeg',
-    title:'Invisible Man',
-    rating:5
+// const mockData =[
+//   {
+//     author:'Ralph Ellison',
+//     image:'/invisibleman.jpeg',
+//     title:'Invisible Man',
+//     rating:5
 
-  },
-  {
-    author:'Ralph Ellison',
-    image:'/invisibleman.jpeg',
-    title:'Invisible Man',
-    rating:4
+//   },
+//   {
+//     author:'Ralph Ellison',
+//     image:'/invisibleman.jpeg',
+//     title:'Invisible Man',
+//     rating:4
 
-  },
-  {
-    author:'Ralph Ellison',
-    image:'/invisibleman.jpeg',
-    title:'Invisible Man',
-    rating:3
+//   },
+//   {
+//     author:'Ralph Ellison',
+//     image:'/invisibleman.jpeg',
+//     title:'Invisible Man',
+//     rating:3
 
-  }
+//   }
  
-]
+// ]
   
 
   return (
@@ -82,7 +82,7 @@ const mockData =[
                 style='lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
                 description='"Invisible Man" by Ralph Ellison is a novel exploring identity, race, and invisibility through the story of a young black man in early 20th-century America. The protagonist struggles with society attempts to define and control him based on his race and navigates a world filled with racism and prejudice. A classic of African American literature, the novel explores the theme of invisibility and the search for individuality.'/>
               </div>
-               <Button onClick={()=>test()}placeholder='Read Now!' style='bg-primary-bg w-40 h-10 xs:w-48 xs:h-16 rounded rounded-lg xs:rounded-xl text-sm xs:text-xl text-white font-semibold mt-4'/>
+               <Button onClick={()=>test()} placeholder='Read Now!' style='bg-primary-bg w-40 h-10 xs:w-48 xs:h-16 rounded rounded-lg xs:rounded-xl text-sm xs:text-xl text-white font-semibold mt-4'/>
             </div>
           </div>
           <div className='flex flex-col justify-center text-center'>

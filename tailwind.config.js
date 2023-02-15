@@ -43,7 +43,7 @@ module.exports = {
         '9px':'9px',
         '10px':'10px',
         '14rem':'14rem'
-      }
+      },
     },
   },
   plugins: [],
