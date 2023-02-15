@@ -17,7 +17,7 @@ export interface ISecondaryLayout extends React.ComponentPropsWithoutRef<'div'> 
           <Header />
           <main className="p-5">{children}</main>
           <div className="m-auto" />
-          <Footer developerName='Alhouseny Camara' yearOfUpdate={2022} />
+          <Footer developerName='TrinaryVisions LLC.' />
         </div>
       </>
     );

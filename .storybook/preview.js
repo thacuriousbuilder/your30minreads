@@ -2,12 +2,11 @@ import * as NextImage from 'next/image';
 import 'tailwindcss/tailwind.css';
 
 const BREAKPOINTS_INT = {
-  xxs:280,
-  xs: 375,
-  sm: 600,
-  md: 900,
-  lg: 1200,
-  xl: 1536,
+  xs:375,
+  sm: 480,
+  md: 768,
+  lg: 976,
+  xl: 1440,
 };
 
 const customViewports = Object.fromEntries(

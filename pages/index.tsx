@@ -3,69 +3,103 @@ import BigBook from '../components/bigBook/BigBook';
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import TitleText from '../components/utils/titleText/TitleText';
 import Button from '../components/utils/button/Button';
+import Grid from '../components/grid/Grid';
 
 import { NextPageWithLayout } from './page';
 import SmallBook from '../components/smallBook/SmallBook';
 import { isTemplateExpression } from 'typescript';
+import {CountDownBox} from '../components/countdownBox/CountDownBox';
 
 const Home: NextPageWithLayout = () => {
 const test=()=>{
   return alert("hello world")
 }
-const mockData =[
-  {
-    author:'Ralph Ellison',
-    image:'/invisibleman.jpeg',
-    title:'Invisible Man',
-    rating:5
+// const mockData =[
+//   {
+//     author:'Ralph Ellison',
+//     image:'/invisibleman.jpeg',
+//     title:'Invisible Man',
+//     rating:5
 
-  },
-  {
-    author:'Ralph Ellison',
-    image:'/invisibleman.jpeg',
-    title:'Invisible Man',
-    rating:4
+//   },
+//   {
+//     author:'Ralph Ellison',
+//     image:'/invisibleman.jpeg',
+//     title:'Invisible Man',
+//     rating:4
 
-  },
-  {
-    author:'Ralph Ellison',
-    image:'/invisibleman.jpeg',
-    title:'Invisible Man',
-    rating:3
+//   },
+//   {
+//     author:'Ralph Ellison',
+//     image:'/invisibleman.jpeg',
+//     title:'Invisible Man',
+//     rating:3
 
-  }
-
-]
+//   }
+ 
+// ]
   
 
   return (
-    <section>
+    <section className=''>
 
-      <div className='flex flex-row justify-between ml-52 mt-10 xl:ml-64 '>
-        <div>
-          <TitleText style=' w-96 text-left break-normal' description='Invisible Man is Ralph Ellison’s only novel and is widely acknowledged as one of the great novels of African-American literature. The invisibility of Ellison’s protagonist is about the invisibility of identity—above all, what it means to be a black man—and its various masks, confronting both personal experience and the force of social illusions. The novel’s special quality is its deft combination of existential inquiry into identity as such—what it means to be socially or racially invisible—with a more sociopolitical allegory of the history of the African-American experience in America. The first-person narrator remains nameless, retrospectively recounting his shifts through the surreal reality of surroundings and people from the racist South to the no less inhospitable world of New York City.' title='Newest Book'/>
-          <Button placeholder='Read now!' style='h-14 w-52 rounded-lg text-white font-bold bg-color-400 mt-2 ml-10' onClick={()=> test()}  />
+        <div className='flex flex-col text-center justify-center mb-4 mt-4 font-sans'>
+         <span className='text-md xs:text-xl md:text-3xl  font-bold mb-2'>Elevate Your health in 30 minutes!</span>
+         <span className='text-xl xs:text-2xl md:text-4xl text-secondary-bg font-semibold mb-2'>But Why 30 Minutes?</span>
+         <span className='text-xs xs:text-sm md:text-2xl font-semibold mb-2 ml-2'>Studies has shown that 30 minutes of daily reading habits can reap the same benefits as longer reading sessions.</span>
         </div>
-        <BigBook style='mr-52 w-80 xl:mr-80 rounded-md' image='/invisibleman.jpeg'/>
-      </div>
-      <div className='flex flex-row justify-between ml-52 xl:ml-64 mt-10'>
-        <BigBook style='mr-52 w-80 xl:mr-80 rounded-md' image='/invisibleman.jpeg'/>
-        <TitleText style=' w-96 text-left break-normal mr-40 xl:mr-64 ' description='Invisible Man is Ralph Ellison’s only novel and is widely acknowledged as one of the great novels of African-American literature. The invisibility of Ellison’s protagonist is about the invisibility of identity—above all, what it means to be a black man—and its various masks, confronting both personal experience and the force of social illusions. The novel’s special quality is its deft combination of existential inquiry into identity as such—what it means to be socially or racially invisible—with a more sociopolitical allegory of the history of the African-American experience in America. The first-person narrator remains nameless, retrospectively recounting his shifts through the surreal reality of surroundings and people from the racist South to the no less inhospitable world of New York City.' title='Coming soon!'/>
-      </div>
-        <div className="py-4 mt-10">
-       <div className="border-b border-gray-700 w-full  text-center">
-        </div>
-        <div className="border-b border-gray-700 w-full text-left font-bold">
-           Books
-        </div>
-        <div className='flex flex-row mt-5 space-x-7 ml-5'>
-         {mockData.map((item)=>(
-           // eslint-disable-next-line react/jsx-key
-           <SmallBook author={item.author} image={item.image} title={item.title} rating={item.rating}/>
-         ))}
-        </div>
-      </div>
-
+          <div className=''>
+            <Grid
+            num1={1}
+            title1='Increase cognitive function'
+            subtext1='Reading can help improve memory, concentration, and critical thinking skills.'
+            num2={2}
+            title2='Reduced stress'
+            subtext2='Reading can be a relaxing and enjoyable activity that can help lower stress levels.'
+            num3={3}
+            title3='Improved emotional well-being'
+            subtext3='Reading can help improve empathy and emotional intelligence, as well as reduce symptoms of depression and anxiety.'
+            />
+          </div>
+          <div className='flex flex-col justify-center text-center'>
+            <span className='font-semibold  text-md xs:text-xl md:text-2xl ml-2 mt-6 mb-2'>Get these same benefits of reading without sacrificing your busy schedule </span>
+            <Button onClick={()=>test()}placeholder='join our waitlist' style='bg-secondary-bg w-40 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/>
+          </div>
+          <div className='flex flex-col justify-center text-center'>
+          <span className='font-semibold text-md xs:text-2xl ml-2 mt-4 mb-2'>New Books Weekly! </span>
+            <div className=' flex align justify-center yarnmd:flex md:justify-center md:align-center'>
+              <CountDownBox days={0} hours={0} minutes={0} seconds={0}/>
+            </div>
+          </div>
+          <div className='flex flex-col justify-center text-center'>
+            <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Check out this book in the meantime!</span>
+            <div className='ml-4 mr-4 xs:ml-9'>
+              <div className='flex md:justify-center md:align-center'>
+                <BigBook image='/invisibleman.jpeg' style='bg-color-400 w-80 object-fit rounded-md'/>
+              </div>
+              <div className='md:flex md:justify-center md:align-center'>
+                <TitleText title=''
+                style='lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
+                description='"Invisible Man" by Ralph Ellison is a novel exploring identity, race, and invisibility through the story of a young black man in early 20th-century America. The protagonist struggles with society attempts to define and control him based on his race and navigates a world filled with racism and prejudice. A classic of African American literature, the novel explores the theme of invisibility and the search for individuality.'/>
+              </div>
+               <Button onClick={()=>test()} placeholder='Read Now!' style='bg-primary-bg w-40 h-10 xs:w-48 xs:h-16 rounded rounded-lg xs:rounded-xl text-sm xs:text-xl text-white font-semibold mt-4'/>
+            </div>
+          </div>
+          <div className='flex flex-col justify-center text-center'>
+          <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
+            <div className='ml-4 mr-4 xs:ml-9'>
+              <div className='flex md:justify-center md:align-center'>
+                <BigBook image='/invisibleman.jpeg' style='bg-color-400 w-80 object-fit rounded-md'/>
+              </div>
+              <div className='flex md:justify-center md:align-center'>
+                <TitleText title=''
+                style=' lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
+                description='"Invisible Man" by Ralph Ellison is a novel exploring identity, race, and invisibility through the story of a young black man in early 20th-century America. The protagonist struggles with society attempts to define and control him based on his race and navigates a world filled with racism and prejudice. A classic of African American literature, the novel explores the theme of invisibility and the search for individuality.'/>
+              </div>
+              </div>
+          </div>
+          
+          
     </section>
   );
 };

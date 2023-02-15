@@ -7,32 +7,43 @@ module.exports = {
   // Ensure these match with .storybook/preview.js
   theme: {
     screens: {
-      xxs:'280px',
-      xs: '375px',
-      sm: '600px',
-      md: '900px',
-      lg: '1200px',
-      xl: '1536px',
+      xs:'360px',
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    colors: {
+  'primary-bg': '#2DB5A9',
+  'secondary-bg': '#5C5EEE',
+  'tertiary-bg': '#EC7405',
+  'quartiary-bg': '#2B2E30',
+  'text': '#000000',
+  'text-secondary': '#5c5eee',
+  white: '#FFFFFF',
+  black: '#000000',
+  charcoal: '#222222',
+  gray:'#D9D9D9',
+  backGrd:"#F0F2F5"
+    },
+   fontFamily: {
+      sans: ['Poppins','Helvetica', 'sans-serif'],
+      serif: ['Bodoni', 'serif'],
     },
     extend: {
-      colors: {
-        color: {
-          500: '#2db5a9',//turquoise
-          400: '#e3b448',//orange
-          300: '#2b2e30',//charcoal
-          200: "#5c5eee",//purple
-          
-        },
-      },
       spacing: {
-        128: '32rem',
+        32: '60rem',
+
       },
       height:{
         100:'30rem'
       },
       fontSize:{
-        100:'2.5rem'
-      }
+        '8px':'8px',
+        '9px':'9px',
+        '10px':'10px',
+        '14rem':'14rem'
+      },
     },
   },
   plugins: [],
