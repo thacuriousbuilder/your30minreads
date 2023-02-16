@@ -9,6 +9,8 @@ import { NextPageWithLayout } from './page';
 import SmallBook from '../components/smallBook/SmallBook';
 import { isTemplateExpression } from 'typescript';
 import {CountDownBox} from '../components/countdownBox/CountDownBox';
+import ModalPopUP from '../components/modalPopUp/ModalPopUp';
+import SecondaryLayout from '../components/layouts/secondaryLayout/SecondaryLayout';
 
 const Home: NextPageWithLayout = () => {
 const test=()=>{
@@ -42,8 +44,7 @@ const test=()=>{
 
   return (
     <section className=''>
-
-        <div className='flex flex-col text-center justify-center mb-4 mt-4 font-sans'>
+        {/* <div className='flex flex-col text-center justify-center mb-4 mt-4 font-sans'>
          <span className='text-md xs:text-xl md:text-3xl  font-bold mb-2'>Elevate Your health in 30 minutes!</span>
          <span className='text-xl xs:text-2xl md:text-4xl text-secondary-bg font-semibold mb-2'>But Why 30 Minutes?</span>
          <span className='text-xs xs:text-sm md:text-2xl font-semibold mb-2 ml-2'>Studies has shown that 30 minutes of daily reading habits can reap the same benefits as longer reading sessions.</span>
@@ -97,7 +98,7 @@ const test=()=>{
                 description='"Invisible Man" by Ralph Ellison is a novel exploring identity, race, and invisibility through the story of a young black man in early 20th-century America. The protagonist struggles with society attempts to define and control him based on his race and navigates a world filled with racism and prejudice. A classic of African American literature, the novel explores the theme of invisibility and the search for individuality.'/>
               </div>
               </div>
-          </div>
+          </div>  */}
           
           
     </section>
@@ -108,5 +109,5 @@ export default Home;
 
 
 Home.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
+  return <SecondaryLayout>{page}</SecondaryLayout>;
 };

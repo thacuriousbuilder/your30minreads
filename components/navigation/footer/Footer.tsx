@@ -1,6 +1,8 @@
 export interface IFooter extends React.ComponentPropsWithoutRef<'footer'>  {
     developerName: string;
   }
+
+  // checks the year
   const getYear = () => {
     const date = new Date();
     return date.getFullYear();

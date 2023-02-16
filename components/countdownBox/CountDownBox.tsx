@@ -8,6 +8,8 @@ export interface ICountDownBox {
 
   }
   export const CountDownBox: React.FC<ICountDownBox> =() => {
+
+    //a weekly countdown timer
     const [countdown, setCountdown] = useState({
       days: 0,
       hours: 0,
