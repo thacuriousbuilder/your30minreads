@@ -4,12 +4,29 @@ import Header from '../../navigation/header/Header';
 import MidFooter from '../../midfooter/MidFooter';
 import ThumbNail from '../../thumbnail/ThumbNail';
 import HeaderBanner from '../../headerBanner/HeaderBanner';
+import ModalPopup from '../../modalPopUp/ModalPopUp';
+import OverlayContent from '../../overlayContent/OverlayContent';
+import { useEffect, useState } from 'react';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
   justify?: 'items-center' | 'items-start';
 }
   
   const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    //shows the modal once countdown is done.
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 10000);
+  
+      return () => clearTimeout(timer);
+    }, []);
+  
+    const handleClose = () => {
+      setIsOpen(false);
+    };
     return (
       <>
         <Head>
@@ -17,6 +34,9 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
           <title>your30minreads</title>
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col bg-backGrd ${justify}`}>
+        <ModalPopup isOpen={isOpen} style={''}>
+            <OverlayContent onClose={handleClose}/>
+          </ModalPopup>
           <HeaderBanner style='bg-primary-bg xs:h-20 md:h-20 h-20 w-full'  text='Stay informed and be the first to know about new releases with our newsletter. Sign up now and get updates and exclusive access to upcoming books.'/>
           <Header />
           <ThumbNail/>
