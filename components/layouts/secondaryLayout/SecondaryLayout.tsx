@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import MidFooter from '../../midfooter/MidFooter';
-import ModalPopUP from '../../modalPopUp/ModalPopUp';
 import Footer from '../../navigation/footer/Footer';
 import Header from '../../navigation/header/Header';
+
 
 
 export interface ISecondaryLayout extends React.ComponentPropsWithoutRef<'div'> {
@@ -16,12 +16,12 @@ export interface ISecondaryLayout extends React.ComponentPropsWithoutRef<'div'> 
           <title></title>
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col ${justify}`}>
-          {/* <Header /> */}
-          <ModalPopUP/>
-          {/* <main className="p-5">{children}</main> */}
-          {/* <div className="m-auto" />
+           <Header /> 
+          <main className="p-5">{children}</main> 
+           <div className="m-auto" />
           <MidFooter/>
-          <Footer developerName='TrinaryVisions LLC.' /> */}
+          <Footer developerName='TrinaryVisions LLC.' />
+          
         </div>
       </>
     );
