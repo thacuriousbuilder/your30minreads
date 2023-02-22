@@ -7,14 +7,50 @@ import HeaderBanner from '../../headerBanner/HeaderBanner';
 import ModalPopup from '../../modalPopUp/ModalPopUp';
 import OverlayContent from '../../overlayContent/OverlayContent';
 import { useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
+
+
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
   justify?: 'items-center' | 'items-start';
 }
-  
-  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps }) => {
-    const [isOpen, setIsOpen] = useState(false);
 
+export const getStaticProps: GetStaticProps = async (context) => {
+  const fetchParams ={
+    method:'post',
+    headers:{
+      'content-type':'application/json'
+    },
+    body: JSON.stringify({
+      query:`{
+       newbooks{
+        data{
+          attributes{
+            image{
+            data{
+              attributes{
+                url
+              }
+            }
+            }
+            titleText
+          }
+        }
+      }
+    }`
+    })
+  }
+  const res = await fetch(`${URL}/graphql`,fetchParams)
+  console.log(res)
+  const data = await res.json()
+  return {
+    props: data,
+  };
+}
+  
+  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps },{data}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    console.log("book:",data)
     //shows the modal once countdown is done.
     useEffect(() => {
       const timer = setTimeout(() => {
