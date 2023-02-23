@@ -2,15 +2,45 @@ import Image from "next/image";
 import Button from "../utils/button/Button";
 import {RxCrossCircled} from 'react-icons/rx'
 import useWindowDimensions from "../../hooks/useWindowsDimensions";
+import { useState } from "react";
+import axios from "axios";
+import { CONST_CONFIG } from "../../constants/config";
 
 export interface IOverlayContent {
   onClose:any
   }
-  
   const OverlayContent: React.FC<IOverlayContent> = ({onClose}) => {
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
     const test=()=>{
       return alert("hello world")
     }
+    const handleName = (event:any) =>{
+      setName(event.target.value)
+      // console.log(name)
+    }
+    const handleEmail = (event:any) =>{
+      setEmail(event.target.value)
+      // console.log(email)
+    }
+    const handleSubmit = (event:any) => {
+      event.preventDefault(); // prevent the default form submit action
+    
+      axios.post(`${CONST_CONFIG.BASE_URL}api/tests`, {
+        data:{
+          Name: name,
+          Email: email
+        }
+        })
+        .then(response => {
+          console.log('Form data successfully submitted to Strapi:', response.data);
+          onClose(); // close the modal after successful submission
+        })
+        .catch(error => {
+          console.error('Error submitting form data to Strapi:', error);
+          // handle error state
+        });
+    };
     const { width } = useWindowDimensions();
 
     //checks the size of the screen and shows the correct backgroudImage
@@ -34,6 +64,7 @@ export interface IOverlayContent {
         <form className="">
           <div className="flex align-center justify-center mb-4 ">
             <input
+            onChange={handleName}
               className="text-xs xs:text-sm md:text-lg p-3 bg-white border-2 md:border-4 border-primary-bg focus:outline-none focus:border-indigo-500 xs:h-12 md:h-16 h-10 rounded-xl xs:rounded-2xl md:rounded-3xl w-full md:w-4/5 lg:w-2/4"
               id="name"
               type="text"
@@ -42,6 +73,7 @@ export interface IOverlayContent {
           </div>
           <div className="flex align-center justify-center ">
             <input
+            onChange={handleEmail}
               className="text-xs xs:text-sm md:text-lg p-3 bg-white border-2 md:border-4 border-primary-bg focus:outline-none focus:border-indigo-500 xs:h-12 md:h-16 h-10 rounded-xl xs:rounded-2xl md:rounded-3xl w-full md:w-4/5 lg:w-2/4"
               id="email"
               type="email"
@@ -49,7 +81,7 @@ export interface IOverlayContent {
             />
           </div>
           <div className="flex justify-center pt-2">
-            <Button placeholder="Join waitlist" onClick={()=> test() } style="bg-primary-bg xs:w-40 w-36 md:w-50 h-8 xs:h-10 md:h-14 rounded-lg text-sm md:text-lg text-white font-semibold "/>
+            <Button placeholder="Join waitlist" onClick={()=> handleSubmit(event) } style="bg-primary-bg xs:w-40 w-36 md:w-50 h-8 xs:h-10 md:h-14 rounded-lg text-sm md:text-lg text-white font-semibold "/>
             </div>
           <div className="flex justify-center">
 

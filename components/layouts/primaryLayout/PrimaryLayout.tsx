@@ -8,6 +8,7 @@ import ModalPopup from '../../modalPopUp/ModalPopUp';
 import OverlayContent from '../../overlayContent/OverlayContent';
 import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
+import { CONST_CONFIG } from '../../../constants/config';
 
 
 
@@ -15,7 +16,7 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
   justify?: 'items-center' | 'items-start';
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const fetchParams ={
     method:'post',
     headers:{
@@ -40,17 +41,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }`
     })
   }
-  const res = await fetch(`${URL}/graphql`,fetchParams)
+  const res = await fetch(`${CONST_CONFIG.BASE_URL}graphql`,fetchParams)
   console.log(res)
   const data = await res.json()
+  console.log(data)
   return {
     props: data,
   };
 }
   
-  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps },{data}) => {
+  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps },) => {
     const [isOpen, setIsOpen] = useState(false);
-    console.log("book:",data)
+    // console.log("book:",data)
     //shows the modal once countdown is done.
     useEffect(() => {
       const timer = setTimeout(() => {
