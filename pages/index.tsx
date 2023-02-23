@@ -67,7 +67,7 @@ const test=()=>{
               <CountDownBox days={0} hours={0} minutes={0} seconds={0}/>
             </div>
           </div>
-          <div className='flex flex-col justify-center text-center'>
+          {/* <div className='flex flex-col justify-center text-center'>
             <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Check out this book in the meantime!</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
@@ -80,12 +80,12 @@ const test=()=>{
               </div>
                <Button onClick={()=>test()} placeholder='Read Now!' style='bg-primary-bg w-40 h-10 xs:w-48 xs:h-16 rounded rounded-lg xs:rounded-xl text-sm xs:text-xl text-white font-semibold mt-4'/>
             </div>
-          </div>
+          </div> */}
           <div className='flex flex-col justify-center text-center'>
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
-                <BigBook image='/invisibleman.jpeg' style='bg-color-400 w-80 object-fit rounded-md'/>
+                <BigBook image='/NLB.png' style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
               <div className='flex md:justify-center md:align-center'>
                 <TitleText title=''
