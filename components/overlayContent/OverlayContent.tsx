@@ -12,9 +12,6 @@ export interface IOverlayContent {
   const OverlayContent: React.FC<IOverlayContent> = ({onClose}) => {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
-    const test=()=>{
-      return alert("hello world")
-    }
     const handleName = (event:any) =>{
       setName(event.target.value)
       // console.log(name)
@@ -59,7 +56,7 @@ export interface IOverlayContent {
         <span className="text-10px xs:text-sm md:text-2xl m-2 font-semibold text-white ">The perfect way to transform your reading experience on the go! </span>
         <span className="text-10px xs:text-sm md:text-xl xs:m-3  mb-1 font-semibold text-white" >All books are written by independent authors. </span>
         <span className="text-xs xs:text-lg md:text-xl font-semibold mb-2" >Elevate your health in 30 minutes!</span>
-        <span className="text-8px xs:text-xs md:text-lg text-white md:w-5/12 md:text-left mb-2" >Be one of the first to join and gain first access to books, as well as a discounted subscription price when we reach 25 books in our collection.</span>
+        <span className="text-8px xs:text-xs md:text-lg text-white  md:text-left mb-2" >Be one of the first to join and gain first access to books</span>
         </div>
         <form className="">
           <div className="flex align-center justify-center mb-4 ">
@@ -85,7 +82,7 @@ export interface IOverlayContent {
             </div>
           <div className="flex justify-center">
 
-            <span className="text-8px xs:text-xs md:text-sm p-2 md:mr-8 text-white">If `you would like to add your book to our collection, feel free to email us at recruit@your30minreads.com.</span>
+            <span className="text-8px xs:text-xs md:text-sm p-2 md:mr-8 text-white">If you would like to add your book to our collection, feel free to email us at recruit@your30minreads.com</span>
             </div>
         </form>
       </div>
