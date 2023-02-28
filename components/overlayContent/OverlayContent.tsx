@@ -20,6 +20,7 @@ export interface IOverlayContent {
       setEmail(event.target.value)
       // console.log(email)
     }
+    //sends the user data from the form to strapi
     const handleSubmit = (event:any) => {
       event.preventDefault(); // prevent the default form submit action
     
@@ -44,7 +45,7 @@ export interface IOverlayContent {
     const bgI = width < 500 ? 'url("ModalPopUP.png")' : 'url("BigModalPopUP.png")'; 
     return (
       <div className="bg-cover bg-center bg-no-repeat h-screen w-screen" style={{ backgroundImage: `${bgI}` }}>
-      <div className="p-3 xs:p-1">
+      <div className="p-3 xs:p-1 max">
       <div className="flex flex-row-reverse px-5">
         <span className="bg-opacity-60" onClick={onClose}><RxCrossCircled size={width>600?40:30} color='orange'/></span>
       </div>
@@ -54,10 +55,10 @@ export interface IOverlayContent {
         </div>
       <div className="flex flex-col text-center justify-center p-2">
         <span className="text-10px xs:text-sm md:text-2xl m-2 font-semibold text-white ">The perfect way to transform your reading experience on the go! </span>
+        <span className="text-xs xs:text-lg md:text-2xl font-semibold mb-2" >Elevate your health in 30 minutes!</span>
         <span className="text-10px xs:text-sm md:text-xl xs:m-3  mb-1 font-semibold text-white" >All books are written by independent authors. </span>
-        <span className="text-xs xs:text-lg md:text-xl font-semibold mb-2" >Elevate your health in 30 minutes!</span>
-        <span className="text-8px xs:text-xs md:text-lg text-white  md:text-left mb-2" >Be one of the first to join and gain first access to books</span>
         </div>
+        <div className="flex flex-col text-center justify-center"><span className="text-8px xs:text-xs md:text-lg lg:text-sm text-white  mb-2  " >Join us as an early adopter to get access to free books and our upcoming launch updates.</span></div>
         <form className="">
           <div className="flex align-center justify-center mb-4 ">
             <input
@@ -82,7 +83,7 @@ export interface IOverlayContent {
             </div>
           <div className="flex justify-center">
 
-            <span className="text-8px xs:text-xs md:text-sm p-2 md:mr-8 text-white">If you would like to add your book to our collection, feel free to email us at recruit@your30minreads.com</span>
+            <span className="text-8px xs:text-xs md:text-sm lg:text-sm p-2 md:mr-8 text-white ">To submit your book, email us at recruit@your30minreads.com.</span>
             </div>
         </form>
       </div>
