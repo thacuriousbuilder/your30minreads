@@ -5,12 +5,48 @@ import Button from '../components/utils/button/Button';
 import Grid from '../components/grid/Grid';
 import { NextPageWithLayout } from './page';
 import {CountDownBox} from '../components/countdownBox/CountDownBox';
+import { CONST_CONFIG } from '../constants/config';
+import { GetStaticProps } from 'next';
+import axios from 'axios';
 
 
-const Home: NextPageWithLayout = () => {
+
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await axios.post(`${CONST_CONFIG.BASE_URL}graphql`, {
+    query: `
+      {
+        newbooks {
+          data {
+            attributes {
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              titleText
+            }
+          }
+        }
+      }
+    `
+  }, {
+    headers: { 'content-type': 'application/json' }
+  });
+
+  const data = response.data;
+  console.log(data);
+  return { props: data };
+}
+
+
+const Home: NextPageWithLayout = (data) => {
 const test=()=>{
   return alert("hello world")
 }
+
+console.log(data)
 // const mockData =[
 //   {
 //     author:'Ralph Ellison',
