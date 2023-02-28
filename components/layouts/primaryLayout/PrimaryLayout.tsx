@@ -14,7 +14,6 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
 }
  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps },) => {
     const [isOpen, setIsOpen] = useState(false);
-    // console.log("book:",data)
     //shows the modal once countdown is done.
     useEffect(() => {
       const timer = setTimeout(() => {
