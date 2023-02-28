@@ -55,7 +55,7 @@ export interface IOverlayContent {
         </div>
       <div className="flex flex-col text-center justify-center p-2">
         <span className="text-10px xs:text-sm md:text-2xl m-2 font-semibold text-white ">The perfect way to transform your reading experience on the go! </span>
-        <span className="text-xs xs:text-lg md:text-2xl font-semibold mb-2" >Elevate your health in 30 minutes!</span>
+        <span className="text-xs xs:text-lg md:text-xl font-semibold mb-2" >Elevate your health in 30 minutes!</span>
         <span className="text-10px xs:text-sm md:text-xl xs:m-3  mb-1 font-semibold text-white" >All books are written by independent authors. </span>
         </div>
         <div className="flex flex-col text-center justify-center"><span className="text-8px xs:text-xs md:text-lg lg:text-sm text-white  mb-2  " >Join us as an early adopter to get access to free books and our upcoming launch updates.</span></div>
@@ -82,8 +82,8 @@ export interface IOverlayContent {
             <Button placeholder="Join waitlist" onClick={()=> handleSubmit(event) } style="bg-primary-bg xs:w-40 w-36 md:w-50 h-8 xs:h-10 md:h-14 rounded-lg text-sm md:text-lg text-white font-semibold "/>
             </div>
           <div className="flex justify-center">
+          <span className="text-8px xs:text-xs md:text-sm lg:text-sm p-2 md:mr-8 text-white ">To submit your book, email us at recruit@your30minreads.com.</span>
 
-            <span className="text-8px xs:text-xs md:text-sm lg:text-sm p-2 md:mr-8 text-white ">To submit your book, email us at recruit@your30minreads.com.</span>
             </div>
         </form>
       </div>
