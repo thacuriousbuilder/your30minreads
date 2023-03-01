@@ -4,5 +4,5 @@ export const CONST_CONFIG ={
 
     // BASE_URL:"http://192.168.1.11:1337/",
     BASE_URL:"https://your30minreads-strapi.herokuapp.com/",
-    BASE_MEDIA_URL:""
+    BASE_MEDIA_URL:"https://res.cloudinary.com/dalhcnjwx/"
 }
