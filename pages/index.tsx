@@ -103,7 +103,7 @@ const Home: NextPageWithLayout = (data) => {
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
-                <BigBook image='/NLB.png' style='bg-color-400 w-80 object-fit rounded-md'/>
+                <BigBook image={'/NLB.png'} style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
               <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
