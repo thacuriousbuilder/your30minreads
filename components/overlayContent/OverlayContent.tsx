@@ -42,7 +42,7 @@ export interface IOverlayContent {
     const { width } = useWindowDimensions();
 
     //checks the size of the screen and shows the correct backgroudImage
-    const bgI = width < 500 ? 'url("ModalPopUP.png")' : 'url("BigModalPopUP.png")'; 
+    const bgI = width < 500 ? `url(${CONST_CONFIG.BASE_MEDIA_URL}Modal_Pop_UP_8252eca87b.png)` : `url(${CONST_CONFIG.BASE_MEDIA_URL}Big_Modal_Pop_Up_b62cf6e6b6.png)`; 
     return (
       <div className="bg-cover bg-center bg-no-repeat h-screen w-screen" style={{ backgroundImage: `${bgI}` }}>
       <div className="p-3 xs:p-1 max">
