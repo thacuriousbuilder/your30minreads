@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
     headers: { 'content-type': 'application/json' }
   });
 
-  const data = response.data;
+  const {data} = response.data;
   console.log(data);
   return { props: data };
 }
@@ -50,7 +50,8 @@ const Home: NextPageWithLayout = (data) => {
       const handleOpen =() =>{
         setIsOpen(true)
       } 
-// console.log(data)
+// console.log(data.newbooks.data[0].attributes.image.data.attributes.url)
+// console.log(data.newbooks.data[0].attributes.titleText)
     return (
     <section className=''>
          <div className='flex flex-col text-center justify-center mb-4 mt-4 font-sans'>
@@ -107,7 +108,7 @@ const Home: NextPageWithLayout = (data) => {
               <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
                 style=' xs:overflow-clip lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
-                description='Alhouseny Camara novella, "No One Left Behind" Volume I, is a powerful tale that draws inspiration from the inhumane treatment of African immigrants attempting to cross the Spanish border of Melilla. "No One Left Behind" Volume I is a poignant and gripping narrative that sheds light on the harsh reality many African immigrants face in their pursuit of a better life.'/>
+                description={data.newbooks.data[0].attributes.titleText}/>
               </div>
               </div>
           </div>  
