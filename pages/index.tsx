@@ -12,9 +12,26 @@ import {useState } from 'react';
 import ModalPopup from '../components/modalPopUp/ModalPopUp';
 import OverlayContent from '../components/overlayContent/OverlayContent';
 
+interface NewBook {
+    attributes: {
+      image: {
+        data: {
+          attributes: {
+            url: string;
+          };
+        };
+      };
+      titleText: string;
+    };
+}
 
+interface NewBooksResponse {
+  newbooks: {
+    data: NewBook[];
+  };
+}
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<NewBooksResponse> = async () => {
   const response = await axios.post(`${CONST_CONFIG.BASE_URL}graphql`, {
     query: `
       {
@@ -38,11 +55,11 @@ export const getStaticProps: GetStaticProps = async () => {
     headers: { 'content-type': 'application/json' }
   });
 
-  const {data} = response.data;
+  const data = response.data;
   console.log(data);
-  return { props: data };
+  return { props: {newbooks:data} };
 }
-const Home: NextPageWithLayout = (data) => {
+const Home: NextPageWithLayout<NewBooksResponse> = ({newbooks}) => {
   const [isOpen, setIsOpen] = useState(false);
      const handleClose = () => {
         setIsOpen(false);
@@ -50,8 +67,11 @@ const Home: NextPageWithLayout = (data) => {
       const handleOpen =() =>{
         setIsOpen(true)
       } 
-// console.log(data.newbooks.data[0].attributes.image.data.attributes.url)
+console.log(newbooks)
 // console.log(data.newbooks.data[0].attributes.titleText)
+// const url = newbooks.data[0].attributes.image.data.attributes.url
+// const newUrl = url.split('/').slice(7).join("/")
+// console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
     return (
     <section className=''>
          <div className='flex flex-col text-center justify-center mb-4 mt-4 font-sans'>
@@ -103,7 +123,7 @@ const Home: NextPageWithLayout = (data) => {
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
-                <BigBook image={'/NLB.png'} style='bg-color-400 w-80 object-fit rounded-md'/>
+                {/* <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='bg-color-400 w-80 object-fit rounded-md'/> */}
               </div>
               <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
