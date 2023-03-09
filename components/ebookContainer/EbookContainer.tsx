@@ -5,9 +5,9 @@ import { GetStaticProps } from "next";
 import axios from "axios";
 import { CONST_CONFIG } from "../../constants/config";
 
-// interface IEbookContainer {
-//   totalPages: number;
-// }
+export interface IEbookContainer {
+ 
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.post(`${CONST_CONFIG.BASE_URL}graphql`, {
@@ -48,7 +48,7 @@ console.log(response.data)
   return { props: data };
 }
 
-const EbookContainer: React.FC = ({data}) => {
+const EbookContainer = ({data}) => {
   const [currentPage, setCurrentPage] = useState(1);
   console.log(data)
   const mockData = [    { id: 2, 
