@@ -48,7 +48,7 @@ console.log(response.data)
   return { props: data };
 }
 
-const EbookContainer = () => {
+const EbookContainer: React.FC<IEbookContainer> = () => {
   const [currentPage, setCurrentPage] = useState(1);
   // console.log(data)
   const mockData = [    { id: 2, 
