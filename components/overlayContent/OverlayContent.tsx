@@ -20,6 +20,7 @@ export interface IOverlayContent {
       setEmail(event.target.value)
       // console.log(email)
     }
+    //sends the user data from the form to strapi
     const handleSubmit = (event:any) => {
       event.preventDefault(); // prevent the default form submit action
     
@@ -44,7 +45,7 @@ export interface IOverlayContent {
     const bgI = width < 500 ? `url(${CONST_CONFIG.BASE_MEDIA_URL}Modal_Pop_UP_8252eca87b.png)` : `url(${CONST_CONFIG.BASE_MEDIA_URL}Big_Modal_Pop_Up_b62cf6e6b6.png)`; 
     return (
       <div className="bg-cover bg-center bg-no-repeat h-screen w-screen" style={{ backgroundImage: `${bgI}` }}>
-      <div className="p-3 xs:p-1">
+      <div className="p-3 xs:p-1 max">
       <div className="flex flex-row-reverse px-5">
         <span className="bg-opacity-60" onClick={onClose}><RxCrossCircled size={width>600?40:30} color='orange'/></span>
       </div>
@@ -81,7 +82,7 @@ export interface IOverlayContent {
             </div>
           <div className="flex justify-center">
 
-          <span className="text-8px xs:text-xs md:text-sm lg:text-sm p-2 md:mr-8 text-white ">To submit your book, email us at books@your30minreads.com</span>
+          <span className="text-8px xs:text-xs md:text-sm lg:text-sm p-2 md:mr-8 text-white ">To submit your book, email us at recruit@your30minreads.com.</span>
             </div>
         </form>
       </div>
