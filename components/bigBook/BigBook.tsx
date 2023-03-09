@@ -6,7 +6,7 @@ export interface IBigBook {
   
   const BigBook: React.FC<IBigBook> = ({ image,style }) => {
     return <div className="rounded-lg">
-      <Image className={style} src={image} alt="cover image for newest book" width={1000} height={1000}/>
+      <Image priority className={style} src={image} alt="cover image for newest book" width={1000} height={1000}/>
       </div>;
   };
   
