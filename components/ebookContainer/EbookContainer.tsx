@@ -48,9 +48,9 @@ console.log(response.data)
   return { props: data };
 }
 
-const EbookContainer = ({data}) => {
+const EbookContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(data)
+  // console.log(data)
   const mockData = [    { id: 2, 
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },   
    { id: 3, text: 'Nullam pulvinar urna eget elit scelerisque, et venenatis odio commodo.' },   
