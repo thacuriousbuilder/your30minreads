@@ -12,26 +12,9 @@ import {useState } from 'react';
 import ModalPopup from '../components/modalPopUp/ModalPopUp';
 import OverlayContent from '../components/overlayContent/OverlayContent';
 
-interface NewBook {
-    attributes: {
-      image: {
-        data: {
-          attributes: {
-            url: string;
-          };
-        };
-      };
-      titleText: string;
-    };
-}
 
-interface NewBooksResponse {
-  newbooks: {
-    data: NewBook[];
-  };
-}
 
-export const getStaticProps: GetStaticProps<NewBooksResponse> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.post(`${CONST_CONFIG.BASE_URL}graphql`, {
     query: `
       {
@@ -55,11 +38,12 @@ export const getStaticProps: GetStaticProps<NewBooksResponse> = async () => {
     headers: { 'content-type': 'application/json' }
   });
 
-  const data = response.data;
+  const {data} = response.data;
   console.log(data);
-  return { props: {newbooks:data} };
+  return { props: data };
 }
-const Home: NextPageWithLayout<NewBooksResponse> = ({newbooks}) => {
+
+const Home: NextPageWithLayout = (data) => {
   const [isOpen, setIsOpen] = useState(false);
      const handleClose = () => {
         setIsOpen(false);
@@ -67,7 +51,7 @@ const Home: NextPageWithLayout<NewBooksResponse> = ({newbooks}) => {
       const handleOpen =() =>{
         setIsOpen(true)
       } 
-console.log(newbooks)
+console.log(data)
 // console.log(data.newbooks.data[0].attributes.titleText)
 // const url = newbooks.data[0].attributes.image.data.attributes.url
 // const newUrl = url.split('/').slice(7).join("/")
@@ -123,7 +107,7 @@ console.log(newbooks)
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
-                {/* <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='bg-color-400 w-80 object-fit rounded-md'/> */}
+                {/* <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='6'/> */}
               </div>
               <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
