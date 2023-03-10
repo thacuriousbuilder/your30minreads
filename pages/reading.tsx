@@ -12,7 +12,7 @@ const Reading = () =>{
         (screen ? 
         <div className="bg-backGrd flex flex-col list-none h-screen">
             <ReadingHeader/>
-            <EbookContainer />
+            <EbookContainer/>
 
         </div> 
         :  

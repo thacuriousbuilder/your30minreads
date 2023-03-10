@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import EbookContainer, { IEbookContainer } from './EbookContainer';
+import EbookContainer, { IEtest } from './EbookContainer';
 import { mockEbookContainerProps } from './EbookContainer.mocks';
 
 export default {
@@ -19,4 +19,4 @@ export const Base = Template.bind({});
 
 Base.args = {
   ...mockEbookContainerProps.base,
-} as IEbookContainer;
+} as IEtest;
