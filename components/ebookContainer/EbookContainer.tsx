@@ -52,9 +52,11 @@ const GET_NLB_TESTS = gql`
     }
   }
 `;
+export interface IEtest{
 
+}
 
-const EbookContainer: React.FC<IEbookContainer>=() => {
+const EbookContainer: React.FC<IEtest>=() => {
   const { loading, error, data } = useQuery<{ nlbTests: { data: IEbookContainer[] } }>(
     GET_NLB_TESTS
   );
