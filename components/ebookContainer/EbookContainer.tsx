@@ -151,7 +151,7 @@ const EbookContainer = () => {
       }
       return (
         <div className="w-full transition-opacity duration-500" key={page.title} style={{ maxWidth: "100%" }} >
-          <BookContent title={page.title}>{contentArray}</BookContent>
+          <BookContent title={page.title as string|null|undefined}>{contentArray}</BookContent>
         </div>
       );
     }
