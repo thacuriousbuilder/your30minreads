@@ -6,44 +6,47 @@ import Grid from '../components/grid/Grid';
 import { NextPageWithLayout } from './page';
 import {CountDownBox} from '../components/countdownBox/CountDownBox';
 import { CONST_CONFIG } from '../constants/config';
-import { GetStaticProps } from 'next';
-import axios from 'axios';
 import {useState } from 'react';
 import ModalPopup from '../components/modalPopUp/ModalPopUp';
 import OverlayContent from '../components/overlayContent/OverlayContent';
+import { gql, useQuery } from '@apollo/client';
 
-
-
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await axios.post(`${CONST_CONFIG.BASE_URL}graphql`, {
-    query: `
-      {
-        newbooks {
-          data {
-            attributes {
-              image {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              titleText
-            }
-          }
-        }
-      }
-    `
-  }, {
-    headers: { 'content-type': 'application/json' }
-  });
-
-  const {data} = response.data;
-  console.log(data);
-  return { props: data };
+export interface INewBooks {
+  data: {
+    attributes: {
+      image: {
+        data: {
+          attributes: {
+            url: string;
+          };
+        };
+      };
+      titleText: string;
+    };
+  }[];
 }
 
-const Home: NextPageWithLayout = (data) => {
+const GET_NEW_BOOKS = gql`
+  {
+    newbooks {
+      data {
+        attributes {
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          titleText
+        }
+      }
+    }
+  }
+`;
+
+const Home: NextPageWithLayout = () => {
+  const { loading, error, data } = useQuery<{ newbooks: INewBooks }>(GET_NEW_BOOKS);
   const [isOpen, setIsOpen] = useState(false);
      const handleClose = () => {
         setIsOpen(false);
@@ -51,11 +54,12 @@ const Home: NextPageWithLayout = (data) => {
       const handleOpen =() =>{
         setIsOpen(true)
       } 
-console.log(data)
-// console.log(data.newbooks.data[0].attributes.titleText)
-// const url = newbooks.data[0].attributes.image.data.attributes.url
-// const newUrl = url.split('/').slice(7).join("/")
-// console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error: {error.message}</p>;
+console.log(data?.newbooks.data[0].attributes.image.data.attributes.url)
+const url = data?.newbooks.data[0].attributes.image.data.attributes.url
+const newUrl = url?.split('/').slice(7).join("/")
+console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
     return (
     <section className=''>
          <div className='flex flex-col text-center justify-center mb-4 mt-4 font-sans'>
@@ -107,12 +111,12 @@ console.log(data)
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
-                {/* <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='6'/> */}
+                <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
               <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
                 style=' xs:overflow-clip lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
-                description={'Alhouseny Camara novella, "No One Left Behind" Volume I, is a powerful tale that draws inspiration from the inhumane treatment of African immigrants attempting to cross the Spanish border of Melilla. "No One Left Behind" Volume I is a poignant and gripping narrative that sheds light on the harsh reality many African immigrants face in their pursuit of a better life.'}/>
+                description={data==undefined?'': data?.newbooks.data[0].attributes.titleText}/>
               </div>
               </div>
           </div>  
