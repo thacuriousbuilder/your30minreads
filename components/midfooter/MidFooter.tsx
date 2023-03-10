@@ -25,8 +25,10 @@ export interface IMidFooter {}
                </div>     
               <div className="flex flex-row  h-28 p-5">
                <div className="flex  mx-auto justify-center items-center">
-                 <Image className=""  src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
-               </div> 
+                 <Link href="/">
+                   <Image className=""  src='/your30minreads.png' alt='The logo of the website' width={200} height={200}/>
+                   </Link>
+                                  </div>
               </div>
             </section>
           
