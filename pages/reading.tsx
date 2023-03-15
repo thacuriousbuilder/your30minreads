@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useWindowDimensions from "../hooks/useWindowsDimensions";
 import ReadingHeader from "../components/navigation/readingHeader/ReadingHeader";
 import EbookContainer from "../components/ebookContainer/EbookContainer";
@@ -11,7 +11,7 @@ const Reading = () =>{
       
         (screen ? 
         <div className="bg-backGrd flex flex-col list-none h-screen">
-            <ReadingHeader/>
+            {/* <ReadingHeader/> */}
             <EbookContainer/>
 
         </div> 

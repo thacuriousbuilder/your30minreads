@@ -21,3 +21,23 @@ export type ImageWithTextType = {
     imgHeight: number;
     imgWidth: number;
   }
+  export interface IEbookContainer {
+    id: number;
+    attributes: {
+      title: string|null|undefined;
+      cover: {
+        data: {
+          attributes: {
+            url: string;
+          };
+        };
+      };
+      tableOfContents: string;
+      Pages: {
+        __typename: string;
+        title: string|null|undefined;
+        content: string;
+        pagenumber:number
+      }[];
+    };
+  }

@@ -1,6 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import type { AppProps } from 'next/app';
 import { useApollo } from '../hooks/useAppolo';
+import { TextSizeProvider } from '../components/utils/context/TextSizeContext';
 import './globals.css';
 import { NextPageWithLayout } from './page';
 
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return(
     
     <ApolloProvider client={client}>
+      <TextSizeProvider>
       {getLayout(<Component {...pageProps} />)}
+      </TextSizeProvider>
       </ApolloProvider>
 
   ) 
