@@ -26,7 +26,7 @@ const TableOfContentsModal = ({
   }));
 
   return (
-    <div className="modal-container bg-white absolute shadow-xl w-full py-4 p-4 h-screen text-lg top-14">
+    <div className="modal-container bg-white absolute shadow-xl w-full z-50 py-4 p-4 h-screen text-lg top-14">
       <button className="close-button absolute top-4 right-4 text-xl" onClick={onClose}>
       <RxCross1 color="#5C5EEE" size={25}/>
       </button>
