@@ -134,7 +134,7 @@ const EbookContainer: React.FC<IEtest>=() => {
     <div
       onTouchStart={swipe}
       onTouchEnd={swipe}
-      className="bg-white p-2 h-4/5 mt-8 flex overflow-hidden"
+      className="fixed  bg-white p-2 h-4/5 mt-20 flex overflow-hidden"
       style={{ overflow: "hidden" }}
     >
       <div className={justify}>
