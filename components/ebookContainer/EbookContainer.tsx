@@ -169,10 +169,10 @@ const EbookContainer: React.FC<IEtest>=() => {
       })}
     </div>
   </div>
-      <div className="absolute text-xs bottom-0 mb-4 ml-2">
+      <div className="fixed text-xs bottom-0 mb-4 ml-2">
         <span className="mx-auto">Page {currentPage} of {totalPages}</span>
       </div>
-      <div className="absolute bottom-0 mb-4 mr-4 right-0 text-xs">
+      <div className="fixed bottom-0 mb-4 mr-4 right-0 text-xs">
         <span>{((currentPage / totalPages) * 100).toFixed(0)}% read</span>
       </div>
     </div>
