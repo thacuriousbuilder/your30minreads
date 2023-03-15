@@ -130,7 +130,7 @@ const TextSizeModal: React.FC<{
       };
     return (
       <>
-    <div className={`flex flex-row justify-between w-screen py-4 px-6 ${readingHeaderbg}`} >
+    <div className={`flex flex-row fixed justify-between w-screen py-4 px-6 ${readingHeaderbg}`} >
        <li>
         <SlList onClick={toggleModal} size={25}/>
        </li>
