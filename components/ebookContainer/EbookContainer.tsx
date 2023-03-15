@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 // import { IEbookContainer } from "./types";
 import BookContent from "../bookContent/BookContent";
 import BigBook from "../bigBook/BigBook";
+import ReadingHeader from "../navigation/readingHeader/ReadingHeader";
 
 export interface IEbookContainer {
   id: number;
@@ -25,7 +26,6 @@ export interface IEbookContainer {
   };
 }
 export interface IEtest{
-
 }
 const GET_NLB_TESTS = gql`
   {
@@ -58,14 +58,15 @@ const GET_NLB_TESTS = gql`
 
 
 const EbookContainer: React.FC<IEtest>=() => {
-  const { loading, error, data } = useQuery<{ nlbTests: { data: IEbookContainer[] } }>(
+  const { loading, error, data } = useQuery<{ nlbTests: { data: IEbookContainer[],} }>(
     GET_NLB_TESTS
   );
   const [currentPage, setCurrentPage] = useState(0);
   const contentContainerRef = useRef<HTMLDivElement>(null);
-console.log(data)
+  console.log(data)
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
+  
 
   const totalPages = data?.nlbTests.data[0]?.attributes.Pages.length ?? 0;
   // console.log(totalPages)
@@ -128,6 +129,8 @@ console.log(data)
   };
 
   return (
+    <>
+    <ReadingHeader datas={data} onNavigateToChapter={setCurrentPage}/>
     <div
       onTouchStart={swipe}
       onTouchEnd={swipe}
@@ -173,6 +176,7 @@ console.log(data)
         <span>{((currentPage / totalPages) * 100).toFixed(0)}% read</span>
       </div>
     </div>
+    </>
   );
 };
 
