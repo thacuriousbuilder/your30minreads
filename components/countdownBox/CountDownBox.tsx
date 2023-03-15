@@ -22,7 +22,7 @@ export interface ICountDownBox {
         const target = new Date(
           now.getFullYear(),
           now.getMonth(),
-          now.getDate() + 7,
+          now.getDate() + 1,
           0,
           0,
           0
@@ -39,8 +39,7 @@ export interface ICountDownBox {
     }, []);
   
     return(
-      <div className="flex justify-between items-center xs:text-2xl md:text-4xl  bg-primary-bg md:w-96 md:h-24 w-56 h-12 p-2 rounded-lg xs:w-72 xs:h-20 xs:p-4 xs:rounded-xl text-white font-semibold">
-        <div>{countdown.days}d :</div>
+      <div className="flex justify-between items-center xs:text-2xl md:text-4xl  bg-primary-bg md:w-96 md:h-24 w-40 h-12 p-4 rounded-lg xs:w-60 xs:h-20  xs:rounded-xl text-white font-semibold">
         <div>{countdown.hours}h :</div>
         <div>{countdown.minutes}m :</div>
         <div>{countdown.seconds}s</div>
