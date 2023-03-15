@@ -12,7 +12,7 @@ export interface IReadingHeader {}
         <SlList size={25}/>
        </li>
           <li>
-          <Link href={''}>
+          <Link href={'/'}>
                   <Image className="mt-1" src='/your30minreads.png' alt='The logo of the website' width={150} height={150}/>
                 </Link>
           </li>

@@ -1,4 +1,4 @@
-import { Key, useState } from "react";
+import { Key, useRef, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 // import { IEbookContainer } from "./types";
 import BookContent from "../bookContent/BookContent";
@@ -23,6 +23,9 @@ export interface IEbookContainer {
       pagenumber:number
     }[];
   };
+}
+export interface IEtest{
+
 }
 const GET_NLB_TESTS = gql`
   {
@@ -52,16 +55,15 @@ const GET_NLB_TESTS = gql`
     }
   }
 `;
-export interface IEtest{
 
-}
 
 const EbookContainer: React.FC<IEtest>=() => {
   const { loading, error, data } = useQuery<{ nlbTests: { data: IEbookContainer[] } }>(
     GET_NLB_TESTS
   );
   const [currentPage, setCurrentPage] = useState(0);
-
+  const contentContainerRef = useRef<HTMLDivElement>(null);
+console.log(data)
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -76,6 +78,9 @@ const EbookContainer: React.FC<IEtest>=() => {
     if (nextPage && nextPage.attributes.Pages.some((page) => page.pagenumber === nextPageId)) {
       setCurrentPage(nextPageId);
       // console.log(currentPage); // add this line
+      if (contentContainerRef.current) {
+        contentContainerRef.current.scrollTop = 0;
+      }
     }
   };
 
@@ -83,6 +88,9 @@ const EbookContainer: React.FC<IEtest>=() => {
     const prevPageId = currentPage - 1;
     if (prevPageId > 0) {
       setCurrentPage(prevPageId);
+      if (contentContainerRef.current) {
+        contentContainerRef.current.scrollTop = 0;
+      }
     } else {
       setCurrentPage(0);
     }
@@ -119,8 +127,6 @@ const EbookContainer: React.FC<IEtest>=() => {
     }
   };
 
-  const characterLimit = 1000; // set the character limit for each page
-
   return (
     <div
       onTouchStart={swipe}
@@ -138,29 +144,29 @@ const EbookContainer: React.FC<IEtest>=() => {
           </div>
         )}
       </div>
+      
       <div className="h-full w-full flex justify-center">
-  {data?.nlbTests.data[0]?.attributes.Pages.map((page: { title: string | null | undefined; content: any; }, index: number) => {
-    if (index + 1 === currentPage) {
-      const content = page.content;
-      console.log(content)
-      const limit = 1000; // set your desired character limit here
-      const contentArray = [];
-      let startIndex = 0;
-      while (startIndex < content.length) {
-        const endIndex = Math.min(startIndex + limit, content.length);
-        contentArray.push(content.substring(startIndex, endIndex));
-        startIndex = endIndex;
-      }
-      return (
-        <div className="w-full transition-opacity duration-500" key={page.title} style={{ maxWidth: "100%" }} >
-          <BookContent title={page.title}>{contentArray}</BookContent>
-        </div>
-      );
-    }
-    return null;
-  })}
-</div>
-      <div className="absolute text-xs  bottom-0 mb-4 ml-2">
+    <div
+      ref={contentContainerRef}
+      className="max-h-full overflow-auto"
+      style={{ maxWidth: "100%" }}
+    >
+      {data?.nlbTests.data[0]?.attributes.Pages.map((page: { title: string | null | undefined; content: any; }, index: number) => {
+        if (index + 1 === currentPage) {
+          return (
+            <div
+              key={page.title}
+              style={{ maxWidth: "100%" }}
+            >
+              <BookContent title={page.title}>{page.content}</BookContent>
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
+  </div>
+      <div className="absolute text-xs bottom-0 mb-4 ml-2">
         <span className="mx-auto">Page {currentPage} of {totalPages}</span>
       </div>
       <div className="absolute bottom-0 mb-4 mr-4 right-0 text-xs">
