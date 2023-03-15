@@ -1,7 +1,8 @@
 import { IReadingHeader } from './ReadingHeader';
 
 const base: IReadingHeader = {
-  sampleTextProp: 'Hello world!',
+ datas:'',
+ onNavigateToChapter:''
 };
 
 export const mockReadingHeaderProps = {
