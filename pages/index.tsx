@@ -123,7 +123,7 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
                 style=' xs:overflow-clip lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
                 description={data==undefined?'': data?.newbooks.data[0].attributes.titleText}/>
               </div>
-              <Button onClick={()=>redirectToReadPage()}placeholder='Read now' style='bg-secondary-bg w-40 mt-4 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/>
+              <div className='flex justify-center align-center'><Button onClick={()=>redirectToReadPage()}placeholder='Read now' style='bg-secondary-bg w-40 mt-4 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/></div>
               </div>
           </div>  
           
