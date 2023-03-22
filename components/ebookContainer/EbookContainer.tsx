@@ -4,8 +4,7 @@ import BookContent from "../bookContent/BookContent";
 import BigBook from "../bigBook/BigBook";
 import ReadingHeader from "../navigation/readingHeader/ReadingHeader";
 import useWindowDimensions from "../../hooks/useWindowsDimensions";
-import {BiLeftArrow, BiLeftArrowCircle, BiRightArrowCircle} from 'react-icons/bi'
-import {BiRightArrow} from 'react-icons/bi'
+import {BiLeftArrowCircle, BiRightArrowCircle} from 'react-icons/bi'
 
 export interface IEbookContainer {
   id: number;
