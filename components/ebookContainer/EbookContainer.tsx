@@ -188,14 +188,14 @@ const EbookContainer: React.FC<IEtest>=() => {
      <div 
       onTouchStart={swipe}
       onTouchEnd={swipe}
-     className="flex justify-center relative">
+     className="flex justify-center relative overflow-x-hidden">
        <div
             className="fixed w-3/5 bg-white p-2 h-4/5 mt-20 flex overflow-hidden"
-            style={{ overflow: "hidden" }}
+            style={{ overflow: "hidden"}}
           >
             <div className={justify}>
               {currentPage === 0 && (
-                <div className="flex w-2/5 md:w-6/12 ">
+                <div className="flex lg:w-2/3 md:w-10/12 ">
                   <BigBook
                     image={data?.nlbTests.data[0]?.attributes.cover.data.attributes.url ?? "/NLB.png"}
                     style="bg-color-400 object-fit rounded-md m-5 xs:m-12" />
@@ -239,7 +239,6 @@ const EbookContainer: React.FC<IEtest>=() => {
           <div onClick={handlePrevPage} className="fixed top-1/2 left-8"><BiLeftArrowCircle color='black' size={80}/></div>
           <div onClick={handleNextPage} className="fixed top-1/2 right-8"><BiRightArrowCircle color="black" size={80}/></div>
           </>
-          )
 
     </>
     )}
