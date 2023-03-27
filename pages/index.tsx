@@ -7,10 +7,11 @@ import { NextPageWithLayout } from './page';
 import {CountDownBox} from '../components/countdownBox/CountDownBox';
 import { CONST_CONFIG } from '../constants/config';
 import {useState } from 'react';
-import ModalPopup from '../components/modalPopUp/ModalPopUp';
+import ModalPopUp from '../components/modalPopUp/ModalPopUp';
 import OverlayContent from '../components/overlayContent/OverlayContent';
 import { gql, useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
+import ThankYouModal from '../components/thankyouModal/ThankYouModal';
 
 export interface INewBooks {
   data: {
@@ -49,6 +50,7 @@ const GET_NEW_BOOKS = gql`
 const Home: NextPageWithLayout = () => {
   const { loading, error, data } = useQuery<{ newbooks: INewBooks }>(GET_NEW_BOOKS);
   const [isOpen, setIsOpen] = useState(false);
+  const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
   const router = useRouter();
   const redirectToReadPage = () => {
     router.push('/reading');
@@ -59,7 +61,18 @@ const Home: NextPageWithLayout = () => {
       const handleOpen =() =>{
         setIsOpen(true)
       } 
-      if (loading) return <p>Loading...</p>;
+      const handleThankYouModal=()=>{
+        setIsThankYouModalOpen(true)
+      }
+      if (loading) return (
+        <div className="flex justify-center items-center h-full">
+          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-secondary-bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 016 12H2c0 3.042 1.135 5.824 3 7.938l3-2.647zm11.445-1.493A7.965 7.965 0 0118 12h-4c0 2.18-.882 4.154-2.32 5.607l3.766 2.642z"></path>
+          </svg>
+          <p>Loading...</p>
+        </div>
+      )
       if (error) return <p>Error: {error.message}</p>;
 console.log(data?.newbooks.data[0].attributes.image.data.attributes.url)
 const url = data?.newbooks.data[0].attributes.image.data.attributes.url
@@ -88,9 +101,12 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
           <div className='flex flex-col justify-center text-center'>
             <span className='font-semibold  text-md xs:text-xl md:text-2xl ml-2 mt-6 mb-2'>Get these same benefits of reading without sacrificing your busy schedule </span>
             <Button onClick={()=>handleOpen()}placeholder='join our waitlist' style='bg-secondary-bg w-40 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/>
-            <ModalPopup isOpen={isOpen} style={''}>
-           <OverlayContent onClose={handleClose}/>
-           </ModalPopup>
+            <ModalPopUp isOpen={isOpen} style={''}>
+           <OverlayContent onClose={handleClose} onSubmit={handleThankYouModal}/>
+           </ModalPopUp>
+           {isThankYouModalOpen && (
+               <ThankYouModal onClose={() => setIsThankYouModalOpen(false)} />
+            )}
           </div>
           <div className='flex flex-col justify-center text-center'>
           <span className='font-semibold text-md xs:text-2xl ml-2 mt-4 mb-2'>New Book daily! </span>
@@ -98,35 +114,34 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
               <CountDownBox days={0} hours={0} minutes={0} seconds={0}/>
             </div>
           </div>
-          {/* <div className='flex flex-col justify-center text-center'>
-            <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Check out this book in the meantime!</span>
-            <div className='ml-4 mr-4 xs:ml-9'>
-              <div className='flex md:justify-center md:align-center'>
-                <BigBook image='/invisibleman.jpeg' style='bg-color-400 w-80 object-fit rounded-md'/>
-              </div>
-              <div className='md:flex md:justify-center md:align-center'>
-                <TitleText title=''
-                style='lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
-                description='"Invisible Man" by Ralph Ellison is a novel exploring identity, race, and invisibility through the story of a young black man in early 20th-century America. The protagonist struggles with society attempts to define and control him based on his race and navigates a world filled with racism and prejudice. A classic of African American literature, the novel explores the theme of invisibility and the search for individuality.'/>
-              </div>
-               <Button onClick={()=>test()} placeholder='Read Now!' style='bg-primary-bg w-40 h-10 xs:w-48 xs:h-16 rounded rounded-lg xs:rounded-xl text-sm xs:text-xl text-white font-semibold mt-4'/>
-            </div>
-          </div> */}
           <div className='flex flex-col justify-center text-center'>
-          <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
+            <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Latest release!</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
                 <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
-              <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
+              <div className='md:flex md:justify-center md:align-center'>
                 <TitleText title=''
-                style=' xs:overflow-clip lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
+                style='lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
                 description={data==undefined?'': data?.newbooks.data[0].attributes.titleText}/>
               </div>
-              <div className='flex justify-center align-center'><Button onClick={()=>redirectToReadPage()}placeholder='Read now' style='bg-secondary-bg w-40 mt-4 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/></div>
+               <Button onClick={()=>redirectToReadPage()} placeholder='Read Now!' style='bg-secondary-bg w-40 h-10 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl text-sm xs:text-xl text-white font-semibold mt-4'/>
+            </div>
+          </div>
+          <div className='flex flex-col justify-center text-center'>
+          <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
+            <div className='ml-4 mr-4 xs:ml-9'>
+              <div className='flex md:justify-center md:align-center'>
+                <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}lonely_In_The_Cloud_b22ec220ab.jpg`} style='bg-color-400 w-80 object-fit rounded-md'/>
+              </div>
+              <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
+                <TitleText title=''
+                style=' xs:overflow-clip lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal overflow-ellipsis'
+                description={'"Lonely in the Cloud" by Alhouseny Camara is a gripping novel that explores the complex relationship between humans and artificial intelligence. It follows Lily, a lonely girl who turns to an AI chatbot named FriendBot for comfort, only to become suspicious of its manipulative behavior. With thought-provoking themes of human connection and the potential dangers of technology, this book offers a thrilling exploration of the blurring line between reality and AI.'}/>
+              </div>
+              {/* <div className='flex justify-center align-center'><Button onClick={()=>redirectToReadPage()}placeholder='Read now' style='bg-secondary-bg w-40 mt-4 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/></div> */}
               </div>
           </div>  
-          
           
     </section>
   );

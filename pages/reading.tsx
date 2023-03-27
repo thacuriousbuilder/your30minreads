@@ -1,5 +1,4 @@
 import React from "react";
-import useWindowDimensions from "../hooks/useWindowsDimensions";
 import EbookContainer from "../components/ebookContainer/EbookContainer";
 
 const Reading = () =>{
