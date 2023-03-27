@@ -132,7 +132,7 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
             <div className='ml-4 mr-4 xs:ml-9'>
               <div className='flex md:justify-center md:align-center'>
-                <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}lonely_In_The_Cloud_b22ec220ab.jpg`} style='bg-color-400 w-80 object-fit rounded-md'/>
+                <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}lonely_In_The_Cloud_70ad1c094d.jpg`} style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
               <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
@@ -142,7 +142,6 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
               {/* <div className='flex justify-center align-center'><Button onClick={()=>redirectToReadPage()}placeholder='Read now' style='bg-secondary-bg w-40 mt-4 md:w-60 md:h-20 h-12 xs:w-60 xs:h-16 rounded rounded-lg xs:rounded-xl  text-sm xs:text-xl text-white font-semibold'/></div> */}
               </div>
           </div>  
-          
     </section>
   );
 };
