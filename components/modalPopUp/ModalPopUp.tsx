@@ -4,7 +4,7 @@ export interface IModalPopUp {
     style:string;
   }
   
-  const ModalPopup: React.FC<IModalPopUp> = ({ isOpen, children,style }) => {
+  const ModalPopUp: React.FC<IModalPopUp> = ({ isOpen, children,style }) => {
     const modalStyles = isOpen
       ? 'fixed  top-0 left-0 w-screen h-screen flex justify-center items-center bg-black bg-opacity-60 z-10 '
       : 'hidden';
@@ -20,7 +20,7 @@ export interface IModalPopUp {
     );
   };
   
-  export default ModalPopup;
+  export default ModalPopUp;
 
 
 
