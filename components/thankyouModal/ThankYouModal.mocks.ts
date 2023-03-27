@@ -1,7 +1,7 @@
-import { IThankYouModal } from './ThankYouModal';
+import {IThankYouModal} from './ThankYouModal'
 
 const base: IThankYouModal = {
-  sampleTextProp: 'Hello world!',
+onClose:()=> console.log("close")
 };
 
 export const mockThankYouModalProps = {

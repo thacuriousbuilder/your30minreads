@@ -1,6 +1,6 @@
 import { RxCrossCircled } from "react-icons/rx";
 
-interface IThankYouModal {
+export interface IThankYouModal {
   onClose: () => void;
 }
 
