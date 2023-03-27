@@ -1,10 +1,10 @@
 import { RxCrossCircled } from "react-icons/rx";
 
-interface IThankYouModalProps {
+interface IThankYouModal {
   onClose: () => void;
 }
 
-const ThankYouModal: React.FC<IThankYouModalProps> = ({ onClose }) => {
+const ThankYouModal: React.FC<IThankYouModal> = ({ onClose }) => {
   return (
     <div className="fixed z-50 inset-0 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center">
