@@ -1,7 +1,8 @@
 import { IOverlayContent } from './OverlayContent';
 
 const base: IOverlayContent = {
-  onClose:false
+  onClose: false,
+  onSubmit: false,
 };
 
 export const mockOverlayContentProps = {
