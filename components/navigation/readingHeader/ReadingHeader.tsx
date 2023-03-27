@@ -28,23 +28,23 @@ const TableOfContentsModal = ({
   return (
     <div className="modal-container bg-white absolute shadow-xl w-full z-50 py-4 p-4 h-screen text-lg top-14">
       <button className="close-button absolute top-4 right-4 text-xl" onClick={onClose}>
-      <RxCross1 color="#5C5EEE" size={25}/>
+      <RxCross1 color="black" size={25}/>
       </button>
       <div className="modal-content mt-12">
         <h2 className="mb-5 text-charcoal">Table of Contents</h2>
-        <ul>
+        <div>
           {tableOfContents.map((chapter: any) => (
             <div className="flex flex-row justify-between mb-5 text-charcoal opacity-70" key={chapter.pageNumber}>
-              <li className="mb-5 "
+              <span className="mb-5 "
                 key={chapter.pageNumber}
                 onClick={() => {
                   onNavigateToChapter(chapter.pageNumber);
                   onClose();
                 }}
               >
-                {chapter.title}
-              </li>
-               <li
+                <span className="cursor-pointer">{chapter.title}</span>
+              </span>
+               <span
                key={chapter.pageNumber}
                onClick={() => {
                  onNavigateToChapter(chapter.pageNumber);
@@ -52,11 +52,11 @@ const TableOfContentsModal = ({
                }}
                          >
                {chapter.pageNumber}
-                         </li>
+                         </span>
             </div>
             
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
@@ -131,15 +131,15 @@ const TextSizeModal: React.FC<{
     return (
       <>
     <div className={`flex flex-row fixed justify-between w-screen py-4 px-6 ${readingHeaderbg}`} >
-       <li>
+       <span className="cursor-pointer">
         <SlList onClick={toggleModal} size={25}/>
-       </li>
-          <li>
+       </span>
+          <span>
           <Link href={'/'}>
                   <Image className="mt-1" src='/your30minreads.png' alt='The logo of the website' width={150} height={150}/>
                 </Link>
-          </li>
-          <li onClick={toggleTextSizeModal} className="font-semibold text-xl">Aa</li>
+          </span>
+          <span onClick={toggleTextSizeModal} className="font-semibold text-xl cursor-pointer">Aa</span>
       </div>
       {isTextSizeModalOpen && (
         <TextSizeModal

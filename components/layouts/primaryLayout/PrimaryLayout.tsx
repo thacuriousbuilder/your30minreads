@@ -7,6 +7,7 @@ import HeaderBanner from '../../headerBanner/HeaderBanner';
 import ModalPopup from '../../modalPopUp/ModalPopUp';
 import OverlayContent from '../../overlayContent/OverlayContent';
 import { useEffect, useState } from 'react';
+import ThankYouModal from '../../thankyouModal/ThankYouModal';
 
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
@@ -14,6 +15,7 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
 }
  const PrimaryLayout: React.FC<IPrimaryLayout> = ({ justify,children,  ...divProps },) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
     //shows the modal once countdown is done.
     useEffect(() => {
       const timer = setTimeout(() => {
@@ -26,6 +28,9 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
     const handleClose = () => {
       setIsOpen(false);
     };
+    const handleThankYouModal=()=>{
+      setIsThankYouModalOpen(true)
+    };
     return (
       <>
         <Head>
@@ -34,8 +39,11 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
         </Head>
         <div {...divProps} className={`min-h-screen flex flex-col bg-backGrd ${justify}`}>
         <ModalPopup isOpen={isOpen} style={''}>
-            <OverlayContent onClose={handleClose}/>
+            <OverlayContent onClose={handleClose} onSubmit={handleThankYouModal}/>
           </ModalPopup>
+          {isThankYouModalOpen && (
+               <ThankYouModal onClose={() => setIsThankYouModalOpen(false)} />
+            )}
           <HeaderBanner style='bg-primary-bg xs:h-20 md:h-20 h-20 w-full'  text='Stay informed and be the first to know about new releases with our newsletter. Sign up now and get updates and exclusive access to upcoming books.'/>
           <Header />
           <ThumbNail/>

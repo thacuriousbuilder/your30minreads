@@ -6,10 +6,12 @@ import { useState } from "react";
 import axios from "axios";
 import { CONST_CONFIG } from "../../constants/config";
 
+
 export interface IOverlayContent {
-  onClose:any
+  onClose:any;
+  onSubmit:any
   }
-  const OverlayContent: React.FC<IOverlayContent> = ({onClose}) => {
+  const OverlayContent: React.FC<IOverlayContent> = ({onClose,onSubmit}) => {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const handleName = (event:any) =>{
@@ -32,18 +34,22 @@ export interface IOverlayContent {
         })
         .then(response => {
           console.log('Form data successfully submitted to Strapi:', response.data);
+          onSubmit()
           onClose(); // close the modal after successful submission
+
         })
         .catch(error => {
           console.error('Error submitting form data to Strapi:', error);
           // handle error state
         });
-    };
+      };
+  
     const { width } = useWindowDimensions();
 
     //checks the size of the screen and shows the correct backgroudImage
-    const bgI = width < 500 ? `url(${CONST_CONFIG.BASE_MEDIA_URL}Modal_Pop_UP_8252eca87b.png)` : `url(${CONST_CONFIG.BASE_MEDIA_URL}Big_Modal_Pop_Up_b62cf6e6b6.png)`; 
+    const bgI = width < 540 ? `url(${CONST_CONFIG.BASE_MEDIA_URL}Modal_Pop_UP_8252eca87b.png)` : `url(${CONST_CONFIG.BASE_MEDIA_URL}Big_Modal_Pop_Up_30f95a0694.png)`; 
     return (
+      <>
       <div className="bg-cover bg-center bg-no-repeat h-screen w-screen" style={{ backgroundImage: `${bgI}` }}>
       <div className="p-3 xs:p-1 max">
       <div className="flex flex-row-reverse px-5">
@@ -88,6 +94,7 @@ export interface IOverlayContent {
       </div>
 
     </div>
+      </>
       );
   };
   
