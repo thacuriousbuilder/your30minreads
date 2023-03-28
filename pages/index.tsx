@@ -116,11 +116,11 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
           </div>
           <div className='flex flex-col justify-center text-center'>
             <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Latest release!</span>
-            <div className='ml-4 mr-4 xs:ml-9'>
-              <div className='flex md:justify-center md:align-center'>
+            <div className=''>
+              <div className='flex justify-center md:justify-center md:items-center'>
                 <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`} style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
-              <div className='md:flex md:justify-center md:align-center'>
+              <div className=' ml-4 mr-4 md:flex md:justify-center md:align-center'>
                 <TitleText title=''
                 style='lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal'
                 description={data==undefined?'': data?.newbooks.data[0].attributes.titleText}/>
@@ -130,11 +130,11 @@ console.log("check:",`${CONST_CONFIG.BASE_MEDIA_URL}${newUrl}`)
           </div>
           <div className='flex flex-col justify-center text-center'>
           <span className='font-semibold text-md xs:text-2xl xs:ml-2 mt-6 mb-2'>Coming soon</span>
-            <div className='ml-4 mr-4 xs:ml-9'>
-              <div className='flex md:justify-center md:align-center'>
+            <div className=''>
+              <div className='flex justify-center md:justify-center md:align-center'>
                 <BigBook image={`${CONST_CONFIG.BASE_MEDIA_URL}lonely_In_The_Cloud_70ad1c094d.jpg`} style='bg-color-400 w-80 object-fit rounded-md'/>
               </div>
-              <div className='flex md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
+              <div className=' ml-4 mr-4 flex text-center md:justify-center md:align-center xs:overflow-ellipses xs:w-auto'>
                 <TitleText title=''
                 style=' xs:overflow-clip lg:w-32 text-sm xs:text-lg md:text-xl mt-4 text-left break-normal overflow-ellipsis'
                 description={'"Lonely in the Cloud" by Alhouseny Camara is a gripping novel that explores the complex relationship between humans and artificial intelligence. It follows Lily, a lonely girl who turns to an AI chatbot named FriendBot for comfort, only to become suspicious of its manipulative behavior. With thought-provoking themes of human connection and the potential dangers of technology, this book offers a thrilling exploration of the blurring line between reality and AI.'}/>
