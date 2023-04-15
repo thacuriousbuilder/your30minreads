@@ -26,7 +26,7 @@ export interface IOverlayContent {
     const handleSubmit = (event:any) => {
       event.preventDefault(); // prevent the default form submit action
     
-      axios.post(`${CONST_CONFIG.BASE_URL}api/tests`, {
+      axios.post(`${CONST_CONFIG.BASE_URL}api/join-waitlists`, {
         data:{
           Name: name,
           Email: email
